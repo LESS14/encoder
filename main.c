@@ -175,16 +175,16 @@ AudioSymbol** convert_flag_row(uint8_t* row, int row_length, double duration, in
 
 AudioSymbol** generate_rows(int* row_count, int samplerate) {
     int width, height, channels;
-    uint8_t* cover_img = stbi_load("cover.png", &width, &height, &channels, 0);
-    uint8_t* flag_img = stbi_load("flag.png", &width, &height, &channels, 0);
+    uint8_t* cover_img = stbi_load("input1.png", &width, &height, &channels, 0);
+    uint8_t* flag_img = stbi_load("input2.png", &width, &height, &channels, 0);
 
     if (!cover_img) {
-        fprintf(stderr, "Error: Unable to load cover.png\n");
+        fprintf(stderr, "input1.png não foi encontrado\n");
         exit(1);
     }
 
     if (!flag_img) {
-        fprintf(stderr, "Error: Unable to load flag.png\n");
+        fprintf(stderr, "input2.png não foi encontrado\n");
         exit(1);
     }
 
@@ -258,7 +258,7 @@ void save_wav_file(const char* filename, int samplerate, int16_t* data, int leng
     FILE* file = fopen(filename, "wb");
 
     if (!file) {
-        fprintf(stderr, "Error: Unable to open file %s\n", filename);
+        fprintf(stderr, "Não foi possível abrir o arquivo %s\n", filename);
         return;
     }
 
